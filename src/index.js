@@ -96,6 +96,7 @@ class Board extends React.Component{
     }
 }
 
+//this is a test modafuckas :P 
 
 class Game extends React.Component {
     render() {
