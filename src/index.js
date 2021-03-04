@@ -12,7 +12,8 @@ function Square(props){
         onClick={props.onClick}> 
             {props.value}
         </button>
-    );
+    ); 
+    //test
 }
 
 //comportamiento del tablero
