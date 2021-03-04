@@ -23,6 +23,9 @@ class Board extends React.Component{
         this.state ={
             squares: Array(9).fill(null),
             xIsNext: true,
+            winner: true,
+            status: '',
+            jugadas: 0
         };
     }
 
@@ -42,6 +45,7 @@ class Board extends React.Component{
 
     //asigna el valor de cada cuadro
     renderSquare(i){
+        this.state.jugadas = this.state.jugadas + 1;
         return (
             <Square 
                 value={this.state.squares[i]}
@@ -50,19 +54,25 @@ class Board extends React.Component{
         )
     }
 
+    jugar(){
+       
+        window.location.reload();
+        
+    }
     //grid de caudros que se presenta y que jugadro va 
     render(){
-        const winner = calculateWinner(this.state.squares);
-        let status;
-        if(winner){
-            status = "Winner: " + winner; 
+        const jugarDeNuevo = <button className="jugardenuevo" onClick={this.jugar}>Jugar de Nuevo</button>
+        this.state.winner = calculateWinner(this.state.squares);
+      
+        if(this.state.winner){
+            this.state.status = "Winner: " + this.state.winner; 
         }else{
-            status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+            this.state.status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
         return(
-            <div>
+            <div className="board">
                 <div className='status'>
-                    {status}
+                    {this.state.status}
                 </div>
                 <div className="board-row">
                     {this.renderSquare(0)}
@@ -79,6 +89,8 @@ class Board extends React.Component{
                     {this.renderSquare(7)}
                     {this.renderSquare(8)}
                 </div>
+                { this.state.winner != null || this.state.jugadas == 90  ? jugarDeNuevo : <h1>Hola</h1> }
+                <button onClick={() => alert(this.state.winner + " " + this.state.jugadas)}>status de Winner</button>
             </div>
         )
     }

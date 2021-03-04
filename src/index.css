@@ -6,6 +6,8 @@ body {
   ol, ul {
     padding-left: 30px;
   }
+
+ 
   
   .board-row:after {
     clear: both;
@@ -15,21 +17,24 @@ body {
   
   .status {
     margin-bottom: 10px;
+    font-size: 64px;
+    text-align: center;
+    margin-left: -20px;
   }
   
   .square {
     background: #fff;
     border: 1px solid #999;
     float: left;
-    font-size: 24px;
+    font-size: 74px;
     font-weight: bold;
     line-height: 34px;
-    height: 34px;
+    height: 84px;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
     text-align: center;
-    width: 34px;
+    width: 84px;
   }
   
   .square:focus {
@@ -45,6 +50,11 @@ body {
     flex-direction: row;
   }
   
+  .game-board{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
   .game-info {
     margin-left: 20px;
   }
